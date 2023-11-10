@@ -6,10 +6,8 @@ import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
 import React, {useState} from 'react'
 import { BrowserRouter,
-  Routes,
-  Link,
+  Routes, 
   Route,
-  Switch
  } from 'react-router-dom';
 
 
