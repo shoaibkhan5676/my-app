@@ -35,7 +35,7 @@ function App() {
       settext("dark")
       showAlert("Light Mode has been Enabled","success")
       document.body.style.backgroundColor="white"
-      document.title="Text-Utils Light Mode"
+  
       
     }
     else{
@@ -44,7 +44,7 @@ function App() {
         showAlert("Dark Mode has been Enabled","success")
         settext("light")
         document.body.style.backgroundColor="grey"
-        document.title="Text-Utils Dark Mode"
+
       }
       else if(colormode==="danger"){
         settext("light")
@@ -104,7 +104,7 @@ function App() {
     }
 
     else if (colormode==="dark"){
-      return "grey"
+      return "#aaa3a3"
     }
     else if (colormode==="success"){
       return "#196b0b"
@@ -132,9 +132,10 @@ function App() {
       <div className="container">
       {<Alert alert={alert}/>}
       
+      
         <Routes>
         
-        <Route exact path='/' element={<TextForm heading="Enter Text to Analyze " mode={mode} show={showAlert} textcolor={textcolor} backgroundcolor={backgroundcolor} />}></Route>
+        <Route exact path='/' element={<TextForm heading="TextUtils-  Words Counter,Character Counter " mode={mode} show={showAlert} textcolor={textcolor} backgroundcolor={backgroundcolor} />}></Route>
         <Route exact path='/about' element={<About ab />}></Route>
 
         </Routes>

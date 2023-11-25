@@ -26,10 +26,10 @@ export default function TextForm(props) {
     <>
     <div className='container' style={{color:props.textcolor(props.mode)}}>
         <div className="mb-3">
-            <label htmlFor="myBox" className='form-label my-2'>{props.heading}</label>
+            <h2 htmlFor="myBox" className='form-label my-2'>{props.heading}</h2>
             <textarea  id="myBox" style={{backgroundColor:props.backgroundcolor(props.mode),color:props.textcolor(props.mode)}} onChange={handleonchange} value={text} rows="3" className="form-control my-3"></textarea>
-            <button className="btn btn-primary mx-1 my-1" onClick={handleupcase}  >Convert to UpperCase</button>
-            <button className="btn btn-primary mx-1 my-1" onClick={handlelocase}  >Convert to LowerCase</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleupcase}  >Convert to UpperCase</button>
+            <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handlelocase}  >Convert to LowerCase</button>
             
         </div>
       
@@ -37,10 +37,10 @@ export default function TextForm(props) {
 
     <div className="container my-2" style={{color:props.textcolor(props.mode)}}>
         <h1>Your Text Summary</h1>
-        <p>{text.trim().split(/\s+/).filter(word => word !== '').length} Words and {text.length} Characters</p>
-        <p>Takes {0.008*text.split(" ").length} minutes to read</p>
+        <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} Words and {text.length} Characters (Including Spaces)</p>
+        <p>Takes {0.008*text.split(" ").filter((element)=>{return element.length!==0}).length} minutes to read</p>
         <h2>Preview</h2>
-        <p>{text.length>0?text:"Enter Some Text to Preview Here"}</p>
+        <p>{text.length>0?text:"Nothing To Preview"}</p>
     </div>
     </>
   )
